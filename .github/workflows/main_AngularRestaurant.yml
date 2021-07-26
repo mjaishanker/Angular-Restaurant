@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
@@ -24,7 +23,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --prod     
+        npm run build --prod
+      working-directory: .   
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
